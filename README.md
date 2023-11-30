@@ -24,12 +24,14 @@ Welcome to the Authentication API documentation. This documentation provides det
 5. [Rate Limiting](#rate-limiting)
    - [Strategy](#strategy)
    - [Response](#response-3)
+6. [Local Setup](#Local_Setup)
+   - [Local Testing](#local-testing)
 
 ## 1. Getting Started
 
 ### Base URL
 
-The base URL for the API is [insert your base URL here].
+The base URL for the API is https://authentication-2ov9.onrender.com
 
 ### Authentication
 
@@ -39,7 +41,7 @@ To access protected endpoints, you need to include an authentication token in th
 
 ### Endpoint
 
-- `POST /auth/register`
+- `POST https://authentication-2ov9.onrender.com/auth/register`
 
 ### Request
 
@@ -63,7 +65,7 @@ To access protected endpoints, you need to include an authentication token in th
 
 ### Endpoint
 
-- `POST /auth/login`
+- `POST https://authentication-2ov9.onrender.com/auth/login`
 
 ### Request
 
@@ -86,7 +88,7 @@ To access protected endpoints, you need to include an authentication token in th
 
 ### Endpoint
 
-- `GET /secure/secure-endpoint`
+- `GET https://authentication-2ov9.onrender.com/secure/secure-endpoint`
 
 ### Request
 
@@ -118,3 +120,56 @@ When the rate limit is exceeded, the response will include the following message
   "error": "Too many requests from this IP, please try again later."
 }
 ```
+
+## 6. Local Setup
+
+### Prerequisites
+
+Ensure you have the following installed on your local machine:
+
+- Node.js
+- npm (Node Package Manager)
+- PostgreSQL
+
+### Setup
+
+1. Clone the repository:
+
+   ```bash
+   https://github.com/Subhrajit-Dutta/authentication.git
+   
+2. Navigate to the project:
+   ```bash
+   cd authentication
+
+3. Install dependencies:
+   ```bash
+   npm install
+
+4. Create a `.env` file in the root directory of the project to store sensitive information and configuration settings. Add the following variables to the `.env` file:
+   ```plaintext
+   JWT_SECRET=
+   DATABASE_URL=
+   NODE_ENV=production
+5. Start the server:
+   ```bash
+   npm run start
+
+The server will be accessible at http://localhost:3000/
+### Local Testing
+
+### Endpoints
+
+When testing the API locally, you can use the following endpoints:
+
+- **User Registration (Sign Up):**
+  - Endpoint: `POST http://localhost:3000/auth/register`
+  - Description: Create a new user account.
+
+- **User Authentication (Login):**
+  - Endpoint: `POST http://localhost:3000/auth/login`
+  - Description: Authenticate and obtain a JWT token for accessing secure endpoints.
+
+- **Secure API Endpoint:**
+  - Endpoint: `GET http://localhost:3000/secure/secure-endpoint`
+  - Description: Access a secure endpoint that requires authentication.
