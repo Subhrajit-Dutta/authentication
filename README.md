@@ -26,6 +26,7 @@ Welcome to the Authentication API documentation. This documentation provides det
    - [Response](#response-3)
 6. [Local Setup](#Local_Setup)
    - [Local Testing](#local-testing)
+7. [Deployement](#deployement)
 
 ## 1. Getting Started
 
@@ -173,3 +174,32 @@ When testing the API locally, you can use the following endpoints:
 - **Secure API Endpoint:**
   - Endpoint: `GET http://localhost:3000/secure/secure-endpoint`
   - Description: Access a secure endpoint that requires authentication.
+
+## 7. Deployment on Render
+
+Follow these steps to deploy the backend on Render:
+
+### 1. Create a Render Account
+
+If you don't have a Render account, sign up at [Render](https://render.com/).
+
+### 2. Configure Environment Variables
+
+On Render, you can configure environment variables in the Render dashboard. Set the following environment variables:
+
+- `JWT_SECRET`: Your secret key for JWT token generation.
+- `DATABASE_URL`: Connection URL for your PostgreSQL database.
+- `NODE_ENV`: Set to `production`.
+
+### 3. Deploy on Render
+
+1. Create a new web service on Render.
+2. Connect your GitHub repository containing the backend code.
+3. Set the build command to `npm install && npm run build`.
+4. Set the start command to `npm start`.
+
+Render will automatically deploy your backend.
+
+### 4. Access the Deployed Backend
+
+Once deployed, you can access your backend API at the provided Render URL.
